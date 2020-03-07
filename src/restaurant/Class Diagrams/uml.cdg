@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="uml">
+  <ClassDiagramComponents>
+    <Class name="Restaurante" package="" visibility="public" xPosition="161.0" yPosition="49.0">
+      <Fields>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="direccion" type="String" visibility="private"/>
+        <Field name="telefono" type="double" visibility="private"/>
+        <Field name="nomd" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="Cocina" package="" visibility="public" xPosition="816.0" yPosition="59.0">
+      <Fields>
+        <Field name="disponibilidadP" type="Boolean" visibility="private"/>
+        <Field name="nomCocinero" type="String" visibility="private"/>
+        <Field name="addIgredientes" type="Boolean" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="platosPerdidos" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Plato" package="" visibility="public" xPosition="110.0" yPosition="305.0">
+      <Fields>
+        <Field name="idPlato" type="String" visibility="private"/>
+        <Field name="cantIng" type="int" visibility="private"/>
+        <Field name="cantPlatos" type="int" visibility="private"/>
+        <Field name="precio" type="Double" visibility="private"/>
+        <Field name="untitledField" type="Object" visibility="private"/>
+        <Field name="numorden" type="int" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="platoMasVendido" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Mesero" package="" visibility="public" xPosition="459.0" yPosition="352.0">
+      <Fields>
+        <Field name="numventas" type="int" visibility="private"/>
+        <Field name="nombre" type="String" visibility="private"/>
+        <Field name="numMesa" type="int" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="listaVentasMesas" returnType="void" visibility="public"/>
+        <Method name="numVentasMesero" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Factura" package="" visibility="public" xPosition="739.0" yPosition="276.0">
+      <Fields>
+        <Field name="iva" type="Double" visibility="private"/>
+        <Field name="propina" type="Double" visibility="private"/>
+        <Field name="precio" type="Double" visibility="private"/>
+        <Field name="concepto" type="String" visibility="private"/>
+        <Field name="cantidad" type="int" visibility="private"/>
+        <Field name="total" type="int" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="totalVentas" returnType="void" visibility="public"/>
+        <Method name="propina" returnType="void" visibility="public"/>
+        <Method name="iva" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <HasRelation name="cocina" source="Plato" target="Cocina" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="cocina" source="Restaurante" target="Cocina" type="Default" sourceCardinality="0..1" targetCardinality="1..1"/>
+    <HasRelation name="platos" source="Mesero" target="Plato" type="Default" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <HasRelation name="platos" source="Restaurante" target="Plato" type="Default" sourceCardinality="0..1" targetCardinality="1..*" collectionType="List"/>
+    <HasRelation name="facturas" source="Cocina" target="Factura" type="Default" sourceCardinality="0..1" targetCardinality="1..*" collectionType="ArrayList"/>
+    <IsRelation name="is" source="Mesero" target="Factura"/>
+    <HasRelation name="meseros" source="Restaurante" target="Mesero" type="Default" sourceCardinality="0..1" targetCardinality="1..*" collectionType="ArrayList"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
